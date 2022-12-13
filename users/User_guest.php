@@ -6,6 +6,7 @@ class User_Guest
     protected $surname;
     protected $adress;
     protected $age;
+    public $cart;
 
     function __construct($name, $surname, $adress, int $age)
     {

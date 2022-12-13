@@ -2,9 +2,9 @@
 require_once __DIR__  . '/models/Food_product.php';
 require_once __DIR__  . '/models/Toy_product.php';
 require_once __DIR__  . '/users/User_registered.php';
+require_once __DIR__  . '/users/Cart.php';
 
-$premium = new User_registered('Marco', 'Ferrari', 'via delle vie', 28);
-echo $premium->get_discount();
+
 
 $animal_list = [
     'cat',
@@ -13,8 +13,14 @@ $animal_list = [
 
 
 $dog_food = new Food_product('RoyalCanin', 11, new Category($animal_list), 1.5, 'croquettes');
-$dog_toy = new Toy_product('Sanipet', 30, new Category($animal_list), 5.9, 'scratcher')
+$dog_toy = new Toy_product('Sanipet', 30, new Category($animal_list), 5.9, 'scratcher');
 
+
+
+// metodo per stampare tutto dal carrello e stampare solo le voci del prodotto che ci servono
+// echo get_class($dog_toy)
+
+// echo date('Y/m/d');
 ?>
 
 
@@ -74,7 +80,18 @@ $dog_toy = new Toy_product('Sanipet', 30, new Category($animal_list), 5.9, 'scra
                 </li>
             </ul>
         </ul>
+        <?php $premium = new User_registered('Marco', 'Ferrari', 'via delle vie', 28);
+        $premium->cart = new Cart();
+        $premium->cart->add($dog_food);
+        $premium->cart->add($dog_toy);
 
+        if (get_class($premium) === 'User_registered') {
+            $discount =  $premium->get_discount();
+            echo ($premium->cart->getTotal() - (($premium->cart->getTotal() * $discount) / 100)) . '$';
+        } else {
+            echo  $premium->cart->getTotal() . '$';
+        };
+        ?>
     </div>
 </body>
 
