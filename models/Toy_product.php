@@ -7,7 +7,9 @@ class Toy_product extends Product
     public $type;
     public $description;
     public static $product_type = 'Pet Toy';
-
+    /**
+     * 
+     */
     public function __construct(string $brand, int $price, array $category, float $weight, string $type, string $description = null)
     {
         parent::__construct($brand, $price, $category);

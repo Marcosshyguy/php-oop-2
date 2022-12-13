@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__  . '/models/Food_product.php';
 require_once __DIR__  . '/models/Toy_product.php';
+require_once __DIR__  . '/users/User_registered.php';
 
+$premium = new User_registered('Marco', 'Ferrari', 'via delle vie', 28);
+echo $premium->get_discount();
 
 $animal_list = [
     'cat',
