@@ -85,12 +85,16 @@ $dog_toy = new Toy_product('Sanipet', 30, new Category($animal_list), 5.9, 'scra
         $premium->cart->add($dog_food);
         $premium->cart->add($dog_toy);
 
-        if (get_class($premium) === 'User_registered') {
-            $discount =  $premium->get_discount();
-            echo ($premium->cart->getTotal() - (($premium->cart->getTotal() * $discount) / 100)) . '$';
-        } else {
-            echo  $premium->cart->getTotal() . '$';
-        };
+        try {
+            if (get_class($premium) === 'User_registered') {
+                $discount =  $premium->get_discount();
+                echo ($premium->cart->getTotal() - (($premium->cart->getTotal() * $discount) / 100)) . '$';
+            } else {
+                echo  $premium->cart->getTotal() . '$';
+            };
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
         ?>
     </div>
 </body>
