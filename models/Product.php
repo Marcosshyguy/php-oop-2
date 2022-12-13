@@ -7,7 +7,7 @@ class Product
     public $price;
     public $category;
 
-    function __construct(string $brand, int $price, array $category)
+    function __construct(string $brand, int $price,  Category  $category)
     {
         $this->brand = $brand;
         $this->price = $price;

@@ -12,8 +12,8 @@ $animal_list = [
 ];
 
 
-$dog_food = new Food_product('RoyalCanin', 11, $animal_list, 1.5, 'croquettes');
-$dog_toy = new Toy_product('Sanipet', 30, $animal_list, 5.9, 'scratcher')
+$dog_food = new Food_product('RoyalCanin', 11, new Category($animal_list), 1.5, 'croquettes');
+$dog_toy = new Toy_product('Sanipet', 30, new Category($animal_list), 5.9, 'scratcher')
 
 ?>
 
@@ -37,7 +37,7 @@ $dog_toy = new Toy_product('Sanipet', 30, $animal_list, 5.9, 'scratcher')
                 <?php echo $dog_food->price . '$' ?>
             </li>
             <li>Category:
-                <?php echo $dog_food->category[1] ?>
+                <?php echo $dog_food->category->pet[1]; ?>
             </li>
             <h3>Type of Product: <?php echo  Food_product::$product_type  ?></h3>
             <ul>
@@ -59,7 +59,7 @@ $dog_toy = new Toy_product('Sanipet', 30, $animal_list, 5.9, 'scratcher')
                 <?php echo $dog_toy->price . '$' ?>
             </li>
             <li>Category:
-                <?php echo $dog_toy->category[0] ?>
+                <?php echo $dog_toy->category->pet[0]; ?>
             </li>
             <h3>Type of Product: <?php echo  Toy_product::$product_type  ?></h3>
             <ul>

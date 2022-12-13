@@ -7,7 +7,7 @@ class Food_product extends Product
     public $type;
     public static $product_type = 'Pet Food';
 
-    public function __construct(string $brand, int $price, array $category, float $weight, string $type)
+    public function __construct(string $brand, int $price, Category  $category, float $weight, string $type)
     {
         parent::__construct($brand, $price, $category);
         $this->weight = $weight;

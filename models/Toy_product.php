@@ -10,7 +10,7 @@ class Toy_product extends Product
     /**
      * 
      */
-    public function __construct(string $brand, int $price, array $category, float $weight, string $type, string $description = null)
+    public function __construct(string $brand, int $price, Category $category, float $weight, string $type, string $description = null)
     {
         parent::__construct($brand, $price, $category);
         $this->weight = $weight;
